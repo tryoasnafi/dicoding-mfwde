@@ -20,16 +20,24 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        loader: 'file-loader',
-        options: {
-          name: 'images/[name].[ext]',
-        },
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[name].[ext]',
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+          }
+        ],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
+      favicon: path.resolve(__dirname, './src/public/images/logo.svg'),
       template: path.resolve(__dirname, 'src/templates/index.html'),
       filename: 'index.html',
     }),
@@ -42,27 +50,4 @@ module.exports = {
       ],
     }),
   ],
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      minSize: 20000,
-      maxSize: 70000,
-      minChunks: 1,
-      maxAsyncRequests: 30,
-      maxInitialRequests: 30,
-      automaticNameDelimiter: '~',
-      enforceSizeThreshold: 50000,
-      cacheGroups: {
-        defaultVendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true
-        }
-      }
-    }
-  },
 };
