@@ -1,4 +1,13 @@
 import 'regenerator-runtime'; /* for async await transpile */
-import '../styles/main.css';
+import '../styles/main.scss';
+import './components/restaurant-list'
+import './components/food-list'
+import './utils/toggleMenu'
+import dataFood from './data/data-food.json'
+import dataRestaurant from './data/data-restaurant.json'
 
-console.log('Hello Coders! :)');
+const restaurantListEl = document.querySelector('restaurant-list')
+restaurantListEl.restaurants = dataRestaurant.restaurants
+
+const foodListEl = document.querySelector('food-list')
+foodListEl.foods = dataFood.results

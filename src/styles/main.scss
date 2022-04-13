@@ -1,0 +1,328 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f3f3f3;
+  font-family: "Nunito", -apple-system, "Segoe UI", sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: #15803d;
+  text-decoration: none;
+}
+
+a,
+button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.container {
+  max-width: 1276px;
+  margin: 0 auto;
+}
+
+.px-1 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.card {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 36px;
+}
+
+.card__title {
+  line-clamp: 2;
+}
+
+.card__description {
+  margin-top: 0.25rem;
+  margin-bottom: 0.4rem;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+#skipToContent {
+  transform: translateY(-100%);
+  position: absolute;
+  color: white;
+  padding: 12px 16px;
+  font-size: 1.25rem;
+  background-color: #15803d;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+  left: 40%;
+
+  &:focus {
+    transform: translateY(150%);
+    transition: all 0.2s;
+  }
+}
+
+header {
+  width: 100%;
+  background-color: #fff;
+  // position: sticky;
+  // -webkit-position: -webkit-sticky;
+  top: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  padding: 0.5rem 0;
+
+  nav {
+    .nav__brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .nav__toggler {
+        display: block;
+        width: 44px;
+        height: 44px;
+        border: none;
+        background-color: #fff;
+        border-radius: 6px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: #f2f2f2;
+        }
+
+        &:focus {
+          border: 2px solid #15803d;
+          background-color: #f2f2f2;
+          box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        .nav__toggler-icon {
+          display: block;
+          height: 2px;
+          margin: 6px 8px;
+          border-radius: 16px;
+          background: #15803d;
+        }
+      }
+    }
+
+    .nav__list {
+      display: none;
+      background-color: #f9fafb;
+      border-radius: 8px;
+
+      ul {
+        li {
+          font-size: 1.2rem;
+          margin-bottom: 4px;
+          cursor: pointer;
+
+          a {
+            padding: 12px 1rem;
+            display: block;
+
+            &:hover {
+              color: black;
+            }
+          }
+
+          &:hover {
+            background-color: #dcfce7;
+            transition: ease-in-out 0.1s;
+          }
+        }
+
+        .active {
+          border-bottom: 2px solid #fde047;
+        }
+      }
+    }
+
+    .show {
+      display: block;
+      transition: all 0.2s;
+    }
+  }
+}
+
+.jumbotron {
+  color: #d9f99d;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../public/images/hero-image.jpg");
+  // background-position: center;
+  // background-attachment: fixed;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  height: 32rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+}
+
+#content {
+  margin-bottom: 3rem;
+
+  h3 {
+    padding-top: 5rem;
+    text-align: center;
+    color: #166534;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    &:hover {
+      color: #15803d;
+      text-shadow: 1px 1px 2px #86efac;
+      transition: all 0.2s;
+    }
+  }
+
+  hr {
+    width: 68px;
+    border-top: 3px solid #fde047;
+    border-bottom: 0;
+    border-left: 0;
+    margin: 0.5rem auto 3rem auto;
+  }
+
+  restaurant-list,
+  food-list {
+    display: grid;
+    gap: 1.5rem 0.5rem;
+  }
+
+  restaurant-item,
+  food-item {
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: #f1f5f9;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: all 0.2s;
+    }
+
+    .restaurant-image,
+    .food-image {
+      width: 100%;
+      height: 12rem;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    p {
+      color: #4b5563;
+      font-size: 0.9rem;
+
+      .label {
+        padding-top: 4px;
+        padding-left: 4px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+footer {
+  .copyright {
+    padding: 1.75rem 0;
+    text-align: center;
+    background-color: #fff;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  #content {
+    restaurant-list,
+    food-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (min-width: 670px) {
+  header {
+    nav {
+      display: flex;
+      justify-content: space-between;
+
+      .nav__brand {
+        .nav__toggler {
+          display: none;
+        }
+      }
+
+      .nav__list {
+        display: block;
+        background-color: white;
+
+        ul {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  #content {
+    restaurant-list,
+    food-list {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav__toggler {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #content {
+    restaurant-list,
+    food-list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
