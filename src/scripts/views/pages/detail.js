@@ -1,5 +1,6 @@
 import RestaurantResource from '../../data/resaurant-resource';
 import UrlParser from '../../routes/url-parser';
+import AddReviewHelper from '../../utils/add-review-helper';
 import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
 import { createFailedLoadTemplate, createLoaderTemplate, createRestaurantDetailTemplate } from '../templates/template-creator';
 
@@ -34,6 +35,12 @@ const Detail = {
           rating: restaurant.rating,
           city: restaurant.city,
         },
+      });
+
+      const addNewReviewForm = document.getElementById('formAddNewReview');
+      addNewReviewForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        await AddReviewHelper.send();
       });
     } catch (error) {
       restaurantContainer.innerHTML = createFailedLoadTemplate();

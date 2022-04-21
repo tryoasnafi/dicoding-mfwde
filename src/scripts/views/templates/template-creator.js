@@ -1,5 +1,4 @@
 import API_ENDPOINT from '../../global/api-endpoint';
-import CONFIG from '../../global/config';
 
 const _createRestaurantIdentityTemplate = (restaurant) => `
   <section class="flex flex-wrap">
@@ -46,7 +45,7 @@ const _createRestaurantMenuTemplate = (menus) => `
   </section>
 `;
 
-const _createRestaurantReviewTemplate = ({ name, customerReviews }) => `
+const createRestaurantReviewTemplate = ({ name, customerReviews }) => `
   <section class="restaurant__review">
     <h3 tabindex="0">${name}'s Review</h3>
     ${customerReviews.map((review) => `
@@ -63,7 +62,7 @@ const _createRestaurantFormReviewTemplate = (id) => `
   <section class="restaurant__form-review">
     <div class="sticky">
       <h3>Let's share your experience here!</h3>
-      <form action="${CONFIG.BASE_URL}/review" method="POST">
+      <form id="formAddNewReview">
         <input hidden type="text" name="id" value="${id}">
         <div class="form-group">
           <label for="name">Name</label>
@@ -93,7 +92,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
   </div>
   ${_createRestaurantMenuTemplate(restaurant.menus)}
   <div class="restaurant__review-container">
-    ${_createRestaurantReviewTemplate(restaurant)}
+    <div id="restaurantReviews">${createRestaurantReviewTemplate(restaurant)}</div>
     ${_createRestaurantFormReviewTemplate(restaurant.id)}
   </div>
 `;
@@ -125,6 +124,7 @@ const createFavoritedButtonTemplate = () => `
 
 export {
   createRestaurantDetailTemplate,
+  createRestaurantReviewTemplate,
   createLoaderTemplate,
   createFailedLoadTemplate,
   createFavoriteButtonTemplate,
