@@ -1,10 +1,11 @@
 import RestaurantResource from '../../data/resaurant-resource';
 import UrlParser from '../../routes/url-parser';
-import { createRestaurantDetailTemplate } from '../templates/template-creator';
+import { createFailedLoadTemplate, createLoaderTemplate, createRestaurantDetailTemplate } from '../templates/template-creator';
 
 const Detail = {
   async render() {
     return `
+      <div id="loader"></div>
       <section id="restaurant" class="container px-1">
       </section>
     `;
@@ -12,9 +13,19 @@ const Detail = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurant = await RestaurantResource.getRestaurantDetail(url.id);
     const restaurantContainer = document.getElementById('restaurant');
-    restaurantContainer.innerHTML += createRestaurantDetailTemplate(restaurant);
+    const loader = document.getElementById('loader');
+
+    loader.innerHTML = createLoaderTemplate();
+
+    try {
+      const restaurant = await RestaurantResource.getRestaurantDetail(url.id);
+      restaurantContainer.innerHTML += createRestaurantDetailTemplate(restaurant);
+    } catch (error) {
+      restaurantContainer.innerHTML = createFailedLoadTemplate();
+    }
+
+    loader.style.display = 'none';
   },
 };
 
