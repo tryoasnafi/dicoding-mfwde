@@ -1,10 +1,12 @@
 #favoriteButtonContainer {
   position: sticky;
-  top: 80%;
+  top: 80vh;
   text-align: right;
   margin-top: -5.5rem;
   padding-top: 16px;
   padding-bottom: 16px;
+  width: fit-content;
+  margin-left: auto;
   z-index: 98;
 
   #favoriteButton {
