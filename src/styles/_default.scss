@@ -83,4 +83,8 @@ input {
 
 #mainContent {
   min-height: 80vh;
+
+  &:focus {
+    outline: #15803d solid 1px;
+  }
 }
