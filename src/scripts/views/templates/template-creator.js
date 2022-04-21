@@ -104,7 +104,7 @@ const createLoaderTemplate = () => `
   </div>
 `;
 
-const createFailedLoadTemplate = (message) => `
+const createFailedLoadTemplate = () => `
   <div class="load__container">
     <p class="failed-load">Failed to load data</p>
   </div>
