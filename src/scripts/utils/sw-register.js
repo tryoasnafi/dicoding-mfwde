@@ -7,8 +7,6 @@ const swRegister = async () => {
   }
 
   try {
-    // await navigator.serviceWorker.register('/sw.js');
-
     await runtime.register();
     console.log('Service worker registered');
   } catch (error) {
