@@ -6,7 +6,7 @@ const Favorite = {
     return `
       <div id="loader"></div>
       <section id="content" class="container px-1">
-        <h2 class="favorite__heading">Your Favorite Restaurant</h2>
+        <h2 class="favorite__heading">Your Favorite Restaurants</h2>
         <restaurant-list></restaurant-list>
       </section>
     `;
