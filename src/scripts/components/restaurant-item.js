@@ -1,18 +1,20 @@
+import API_ENDPOINT from '../global/api-endpoint';
+
 class RestaurantItem extends HTMLElement {
   set restaurant(restaurant) {
-    this._restaurant = restaurant
-    this.render()
+    this._restaurant = restaurant;
+    this.render();
   }
 
   get restaurant() {
-    return this._restaurant
+    return this._restaurant;
   }
 
   render() {
     this.innerHTML = `
-      <a href="#">
+      <a href="/#/detail/${this._restaurant.id}">
         <section>
-          <img src="${this._restaurant.pictureId}" alt="${this._restaurant.name} Restaurant" class="restaurant-image" loading="lazy"  />
+          <img src="${API_ENDPOINT.IMAGE_SMALL(this._restaurant.pictureId)}" alt="${this._restaurant.name} Restaurant" class="restaurant-image" loading="lazy"  />
           <h4 class="card__title text-overflow">${this._restaurant.name}</h4>
           <p class="card__description text-overflow">${this._restaurant.description}</p>
           <section class="flex align-center">
@@ -21,8 +23,8 @@ class RestaurantItem extends HTMLElement {
           </section>
         </section>
       </a>
-    `
+    `;
   }
 }
 
-customElements.define('restaurant-item', RestaurantItem)
+customElements.define('restaurant-item', RestaurantItem);

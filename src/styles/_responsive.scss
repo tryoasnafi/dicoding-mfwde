@@ -1,0 +1,106 @@
+@media screen and (min-width: 400px) {
+  #content {
+    restaurant-list,
+    food-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (min-width: 670px) {
+  header {
+    nav {
+      display: flex;
+      justify-content: space-between;
+
+      .nav__brand {
+        .nav__toggler {
+          display: none;
+        }
+      }
+
+      .nav__list {
+        display: block;
+        background-color: white;
+
+        ul {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  #content {
+    restaurant-list,
+    food-list {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+  }
+
+  .restaurant__menu-wrapper {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav__toggler {
+    display: none;
+  }
+
+  #restaurant {
+    .restaurant__main-detail {
+      display: flex;
+
+      .restaurant__info {
+        flex: 0 60%;
+      }
+
+      .restaurant-image {
+        margin: 0 2rem 0 0;
+      }
+
+      .restaurant__picture {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 16px;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .restaurant__review-container {
+      width: 100%;
+      display: flex;
+
+      .restaurant__review,
+      .restaurant__form-review {
+        width: 50%;
+      }
+
+      .restaurant__review {
+        margin-right: 1rem;
+      }
+
+      .restaurant__form-review {
+        margin-left: 1rem;
+
+        .sticky {
+          position: sticky;
+          top: 7rem;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #content {
+    restaurant-list,
+    food-list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

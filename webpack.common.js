@@ -11,7 +11,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(sc|sa|c)ss$/i,
         use: [
           'style-loader',
           'css-loader',
@@ -30,7 +30,7 @@ module.exports = {
           },
           {
             loader: 'image-webpack-loader',
-          }
+          },
         ],
       },
     ],
@@ -38,7 +38,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       favicon: path.resolve(__dirname, './src/public/images/logo.svg'),
-      template: path.resolve(__dirname, 'src/templates/index.html'),
+      template: path.resolve(__dirname, './src/templates/index.html'),
       filename: 'index.html',
     }),
     new CopyWebpackPlugin({

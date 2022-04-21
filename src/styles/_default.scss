@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f3f3f3;
+  font-family: "Nunito", -apple-system, "Segoe UI", sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: #15803d;
+  text-decoration: none;
+}
+
+a,
+button,
+input {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.container {
+  max-width: 1276px;
+  margin: 0 auto;
+}
+
+.px-1 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.mr-1 {
+  margin-right: 1rem;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.block {
+  display: block;
+  width: 100%;
+}
+
+.card {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 36px;
+}
+
+.card__title {
+  line-clamp: 2;
+}
+
+.card__description {
+  margin-top: 0.25rem;
+  margin-bottom: 0.4rem;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}

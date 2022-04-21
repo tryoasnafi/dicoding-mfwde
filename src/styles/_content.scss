@@ -1,0 +1,63 @@
+#content {
+  margin-bottom: 3rem;
+
+  h3 {
+    padding-top: 5rem;
+    text-align: center;
+    color: #166534;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    &:hover {
+      color: #15803d;
+      text-shadow: 1px 1px 2px #86efac;
+      transition: all 0.2s;
+    }
+  }
+
+  hr {
+    width: 68px;
+    border-top: 3px solid #fde047;
+    border-bottom: 0;
+    border-left: 0;
+    margin: 0.5rem auto 3rem auto;
+  }
+
+  restaurant-list,
+  food-list {
+    display: grid;
+    gap: 1.5rem 0.5rem;
+  }
+
+  restaurant-item,
+  food-item {
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: #f1f5f9;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: all 0.2s;
+    }
+
+    .restaurant-image,
+    .food-image {
+      width: 100%;
+      height: 12rem;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    p {
+      color: #4b5563;
+      font-size: 0.9rem;
+
+      .label {
+        padding-top: 4px;
+        padding-left: 4px;
+        font-weight: 600;
+      }
+    }
+  }
+}

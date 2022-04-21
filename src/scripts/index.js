@@ -1,13 +1,20 @@
 import 'regenerator-runtime';
 import '../styles/main.scss';
-import './components/restaurant-list'
-import './components/food-list'
-import './utils/toggleMenu'
-import dataFood from './data/data-food.json'
-import dataRestaurant from './data/data-restaurant.json'
+import './components/restaurant-list';
+import './components/food-list';
+import App from './views/app';
 
-const restaurantListEl = document.querySelector('restaurant-list')
-restaurantListEl.restaurants = dataRestaurant.restaurants
+const app = new App({
+  button: document.getElementById('hamburgerButton'),
+  drawer: document.getElementById('navigationDrawer'),
+  content: document.getElementById('mainContent'),
+  menuList: document.getElementsByClassName('nav__list-item'),
+});
 
-const foodListEl = document.querySelector('food-list')
-foodListEl.foods = dataFood.results
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
+
+window.addEventListener('load', () => {
+  app.renderPage();
+});
