@@ -1,12 +1,14 @@
 import RestaurantResource from '../../data/resaurant-resource';
 import UrlParser from '../../routes/url-parser';
+import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
 import { createFailedLoadTemplate, createLoaderTemplate, createRestaurantDetailTemplate } from '../templates/template-creator';
 
 const Detail = {
   async render() {
     return `
       <div id="loader"></div>
-      <section id="restaurant" class="container px-1">
+      <section id="restaurant" class="container">
+        <div id="favoriteButtonContainer"></div>
       </section>
     `;
   },
@@ -21,6 +23,18 @@ const Detail = {
     try {
       const restaurant = await RestaurantResource.getRestaurantDetail(url.id);
       restaurantContainer.innerHTML += createRestaurantDetailTemplate(restaurant);
+
+      FavoriteButtonInitiator.init({
+        favoriteButtonContainer: document.getElementById('favoriteButtonContainer'),
+        restaurant: {
+          id: restaurant.id,
+          name: restaurant.name,
+          description: restaurant.description,
+          pictureId: restaurant.pictureId,
+          rating: restaurant.rating,
+          city: restaurant.city,
+        },
+      });
     } catch (error) {
       restaurantContainer.innerHTML = createFailedLoadTemplate();
     }

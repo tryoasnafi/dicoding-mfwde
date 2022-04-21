@@ -43,6 +43,10 @@
   .restaurant__menu-wrapper {
     display: flex;
   }
+
+  #favoriteButtonContainer {
+    top: 16%;
+  }
 }
 
 @media screen and (min-width: 768px) {

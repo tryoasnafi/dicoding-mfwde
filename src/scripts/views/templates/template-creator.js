@@ -73,7 +73,7 @@ const _createRestaurantFormReviewTemplate = (id) => `
           <label for="review">Review</label>
           <textarea class="form-control" id="review" name="review" rows="3" placeholder="Give us some feedback" required></textarea>
         </div>
-        <button type="submit" id="btnAddNewReview">Submit</button>
+        <button type="submit" title="submit new review"  id="btnAddNewReview">Submit</button>
       </form>
     </div>
   </section>
@@ -111,15 +111,15 @@ const createFailedLoadTemplate = () => `
   </div>
 `;
 
-const createLikeButtonTemplate = () => `
-  <button aria-label="like this movie" id="likeButton" class="like">
-     <i class="fa fa-heart-o" aria-hidden="true"></i>
+const createFavoriteButtonTemplate = () => `
+  <button aria-label="add to favorite restaurant" title="add to favorite restaurant" id="favoriteButton" class="favorite">
+     <img src="../images/heart.svg">
   </button>
 `;
 
-const createLikedButtonTemplate = () => `
-  <button aria-label="unlike this movie" id="likeButton" class="like">
-    <i class="fa fa-heart" aria-hidden="true"></i>
+const createFavoritedButtonTemplate = () => `
+  <button aria-label="unfavorite this restaurant" title="unfavorite this restaurant" id="favoriteButton" class="favorite">
+    <img src="../images/heart-fill.svg">
   </button>
 `;
 
@@ -127,6 +127,6 @@ export {
   createRestaurantDetailTemplate,
   createLoaderTemplate,
   createFailedLoadTemplate,
-  createLikeButtonTemplate,
-  createLikedButtonTemplate,
+  createFavoriteButtonTemplate,
+  createFavoritedButtonTemplate,
 };

@@ -1,0 +1,23 @@
+#favoriteButtonContainer {
+  position: sticky;
+  top: 80%;
+  text-align: right;
+  margin-top: -5.5rem;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  z-index: 98;
+
+  #favoriteButton {
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    border: none;
+    cursor: pointer;
+    padding-top: 4px;
+
+    &:hover {
+      background-color: #fef2f2;
+      transition: all 0.2s;
+    }
+  }
+}
