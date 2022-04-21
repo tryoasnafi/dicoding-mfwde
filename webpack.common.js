@@ -67,7 +67,7 @@ module.exports = {
           src: path.resolve('src/public/images/icon.png'),
           destination: path.join('icons'),
           sizes: [72, 96, 128, 144, 152, 192, 256, 384, 512],
-          purpose: 'any',
+          purpose: 'any maskable',
         },
       ],
     }),
