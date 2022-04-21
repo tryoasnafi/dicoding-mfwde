@@ -1,3 +1,4 @@
+import 'regenerator-runtime';
 import CONFIG from '../global/config';
 
 const CacheHelper = {
