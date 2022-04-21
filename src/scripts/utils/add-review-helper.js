@@ -1,4 +1,4 @@
-import RestaurantResource from '../data/resaurant-resource';
+import RestaurantResource from '../data/restaurant-resource';
 import { createRestaurantReviewTemplate } from '../views/templates/template-creator';
 
 const AddReviewHelper = {

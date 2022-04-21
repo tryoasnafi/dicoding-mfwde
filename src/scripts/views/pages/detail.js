@@ -1,4 +1,4 @@
-import RestaurantResource from '../../data/resaurant-resource';
+import RestaurantResource from '../../data/restaurant-resource';
 import UrlParser from '../../routes/url-parser';
 import AddReviewHelper from '../../utils/add-review-helper';
 import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';

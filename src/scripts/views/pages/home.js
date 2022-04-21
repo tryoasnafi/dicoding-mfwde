@@ -1,4 +1,4 @@
-import RestaurantResource from '../../data/resaurant-resource';
+import RestaurantResource from '../../data/restaurant-resource';
 import dataFood from '../../data/data-food.json';
 import { createFailedLoadTemplate, createLoaderTemplate } from '../templates/template-creator';
 
