@@ -106,7 +106,8 @@ const createLoaderTemplate = () => `
 
 const createFailedLoadTemplate = () => `
   <div class="load__container">
-    <p class="failed-load">Failed to load data</p>
+    <p class="failed-load">Unable to load data</p>
+    <p>Check your internet connection and please, try again!</p>
   </div>
 `;
 
