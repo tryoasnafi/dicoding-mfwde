@@ -60,6 +60,7 @@ const createRestaurantReviewTemplate = ({ name, customerReviews }) => `
 
 const _createRestaurantFormReviewTemplate = (id) => `
   <section class="restaurant__form-review">
+    <div class="flash-message warning" id="flashMessage"></div>
     <div class="sticky">
       <h3>Let's share your experience here!</h3>
       <form id="formAddNewReview">
@@ -110,6 +111,10 @@ const createFailedLoadTemplate = () => `
   </div>
 `;
 
+const createFailedAddReviewTemplate = (message) => `
+  <p class="flash-message warning">${message}</p>
+`;
+
 const createFavoriteButtonTemplate = () => `
   <button aria-label="add to favorite restaurant" title="add to favorite restaurant" id="favoriteButton" class="favorite">
      <img src="../images/heart.svg">
@@ -127,6 +132,7 @@ export {
   createRestaurantReviewTemplate,
   createLoaderTemplate,
   createFailedLoadTemplate,
+  createFailedAddReviewTemplate,
   createFavoriteButtonTemplate,
   createFavoritedButtonTemplate,
 };

@@ -1,14 +1,17 @@
 import RestaurantResource from '../data/restaurant-resource';
-import { createRestaurantReviewTemplate } from '../views/templates/template-creator';
+import { createFailedAddReviewTemplate, createRestaurantReviewTemplate } from '../views/templates/template-creator';
 
 const AddReviewHelper = {
   async send() {
     const data = this._getData();
     try {
+      if (!navigator.onLine) {
+        throw new Error('You can\'t add a review while offline');
+      }
       const response = await RestaurantResource.addNewReview(data);
       this._sendHandler(response);
     } catch (error) {
-      console.log(error);
+      this._errorHandler(error);
     }
   },
 
@@ -18,6 +21,11 @@ const AddReviewHelper = {
     } else {
       throw new Error('Failed to add new review');
     }
+  },
+
+  _errorHandler(error) {
+    const flashMessage = document.getElementById('flashMessage');
+    flashMessage.innerHTML = createFailedAddReviewTemplate(error.message);
   },
 
   _getData() {
