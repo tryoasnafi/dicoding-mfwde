@@ -18,8 +18,8 @@ class RestaurantItem extends HTMLElement {
           <h4 class="card__title text-overflow">${this._restaurant.name}</h4>
           <p class="card__description text-overflow">${this._restaurant.description}</p>
           <section class="flex align-center">
-            <p class="flex"> <img src="./images/rating-star.svg" alt="rating icon" loading="lazy" /> <span class="label">${this._restaurant.rating.toFixed(1)}</span></p>
-            <p class="flex px-1"><img src="./images/map-pin.svg" alt="location icon" loading="lazy" /> <span class="label">${this._restaurant.city}</span></p>
+            <p class="flex"> <img src="./icons/rating-star.svg" alt="rating icon" loading="lazy" /> <span class="label">${this._restaurant.rating.toFixed(1)}</span></p>
+            <p class="flex px-1"><img src="./icons/map-pin.svg" alt="location icon" loading="lazy" /> <span class="label">${this._restaurant.city}</span></p>
           </section>
         </section>
       </a>

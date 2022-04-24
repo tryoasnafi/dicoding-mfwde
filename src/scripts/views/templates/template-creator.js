@@ -3,11 +3,11 @@ import API_ENDPOINT from '../../global/api-endpoint';
 const _createRestaurantIdentityTemplate = (restaurant) => `
   <section class="flex flex-wrap">
     <p class="flex mr-1">
-      <img class="restaurant__rating-icon" src="./images/rating-star.svg" alt="rating icon" loading="lazy" />
+      <img class="restaurant__rating-icon" src="./icons/rating-star.svg" alt="rating icon" loading="lazy" />
       <span class="label">${(restaurant.rating).toFixed(1)}</span>
     </p>
     <p class="flex">
-      <img class="restaurant__map-icon" src="./images/map-pin.svg" width="16px" alt="location icon" loading="lazy" /> 
+      <img class="restaurant__map-icon" src="./icons/map-pin.svg" width="16px" alt="location icon" loading="lazy" /> 
       <span class="label">${restaurant.address}, ${restaurant.city}.</span>
     </p>
   </section>
@@ -100,7 +100,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
 const createLoaderTemplate = () => `
   <div class="loader-wrapper">
-    <img src='../images/loading.svg'>
+    <img src='../icons/loading.svg'>
   </div>
 `;
 
@@ -117,13 +117,13 @@ const createFailedAddReviewTemplate = (message) => `
 
 const createFavoriteButtonTemplate = () => `
   <button aria-label="add to favorite restaurant" title="add to favorite restaurant" id="favoriteButton" class="favorite">
-     <img src="../images/heart.svg">
+     <img src="../icons/heart.svg">
   </button>
 `;
 
 const createFavoritedButtonTemplate = () => `
   <button aria-label="unfavorite this restaurant" title="unfavorite this restaurant" id="favoriteButton" class="favorite">
-    <img src="../images/heart-fill.svg">
+    <img src="../icons/heart-fill.svg">
   </button>
 `;
 
