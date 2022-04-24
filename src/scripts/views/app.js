@@ -30,21 +30,17 @@ class App {
     });
   }
 
-  _skipToContent() {
-    this._skipToContent = document.getElementById('skipToContent');
-    this._skipToContent.addEventListener('click', (event) => {
-      event.preventDefault();
-      document.getElementById('mainContent').focus();
-    });
-  }
-
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url] || routes['/'];
     this._content.innerHTML = await page.render();
     await page.afterRender();
 
-    this._skipToContent();
+    const skipToContent = document.getElementById('skipToContent');
+    skipToContent.addEventListener('click', (event) => {
+      event.preventDefault();
+      document.getElementById('mainContent').focus();
+    });
   }
 }
 
