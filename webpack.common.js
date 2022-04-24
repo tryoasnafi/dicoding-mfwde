@@ -2,7 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-// const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = {
@@ -28,7 +27,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'images/[name].[ext]',
+              name: '[path]/[name].[ext]',
             },
           },
           {
@@ -40,7 +39,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      favicon: path.resolve(__dirname, './src/public/images/icon.png'),
+      favicon: path.resolve(__dirname, './src/public/icons/icon.png'),
       template: path.resolve(__dirname, './src/templates/index.html'),
       filename: 'index.html',
     }),
@@ -66,7 +65,7 @@ module.exports = {
       crossorigin: 'use-credentials',
       icons: [
         {
-          src: path.resolve('src/public/images/icon.png'),
+          src: path.resolve('src/public/icons/icon.png'),
           destination: path.join('icons'),
           sizes: [72, 96, 128, 144, 152, 192, 256, 384, 512],
           purpose: 'any maskable',
