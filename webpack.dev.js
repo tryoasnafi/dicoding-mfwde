@@ -11,6 +11,9 @@ module.exports = merge(common, {
     contentBase: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+    }),
   ],
 });
