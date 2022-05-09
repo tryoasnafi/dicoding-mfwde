@@ -1,7 +1,7 @@
 import RestaurantResource from '../../data/restaurant-resource';
 import UrlParser from '../../routes/url-parser';
 import AddReviewHelper from '../../utils/add-review-helper';
-import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
+import FavoriteButtonPresenter from '../../utils/favorite-button-presenter';
 import { createFailedLoadTemplate, createLoaderTemplate, createRestaurantDetailTemplate } from '../templates/template-creator';
 
 const Detail = {
@@ -25,7 +25,7 @@ const Detail = {
       const restaurant = await RestaurantResource.getRestaurantDetail(url.id);
       restaurantContainer.innerHTML += createRestaurantDetailTemplate(restaurant);
 
-      FavoriteButtonInitiator.init({
+      FavoriteButtonPresenter.init({
         favoriteButtonContainer: document.getElementById('favoriteButtonContainer'),
         restaurant: {
           id: restaurant.id,
