@@ -1,3 +1,9 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
 
@@ -41,5 +47,26 @@ module.exports = merge(common, {
         },
       },
     },
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+      }),
+      new CssMinimizerPlugin(),
+    ],
   },
+  plugins: [
+    new ImageminWebpackPlugin({
+      test: /\.(jpe?g|png)$/i,
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
+      ],
+      pngquant: {
+        quality: 50,
+      },
+    }),
+    new CleanWebpackPlugin(),
+  ],
 });
