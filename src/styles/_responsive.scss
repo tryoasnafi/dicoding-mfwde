@@ -47,6 +47,11 @@
   #favoriteButtonContainer {
     top: 15vh;
   }
+
+  .jumbotron {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/images/hero-image-medium.webp");
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -106,5 +111,10 @@
     food-list {
       grid-template-columns: repeat(4, 1fr);
     }
+  }
+
+  .jumbotron {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/images/hero-image-large.webp");
   }
 }
