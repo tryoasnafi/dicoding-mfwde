@@ -1,7 +1,7 @@
 import { createFavoriteButtonTemplate, createFavoritedButtonTemplate } from '../views/templates/template-creator';
 import FavoriteRestaurantIdb from './favorite-restaurant-idb';
 
-const FavoriteButtonInitiator = {
+const FavoriteButtonPresenter = {
   async init({ favoriteButtonContainer, restaurant }) {
     this._favoriteButtonContainer = favoriteButtonContainer;
     this._restaurant = restaurant;
@@ -44,4 +44,4 @@ const FavoriteButtonInitiator = {
   },
 };
 
-export default FavoriteButtonInitiator;
+export default FavoriteButtonPresenter;
