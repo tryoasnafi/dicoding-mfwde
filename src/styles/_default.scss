@@ -64,7 +64,8 @@ input {
 }
 
 .card__title {
-  line-clamp: 2;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 
 .card__description {
@@ -81,8 +82,8 @@ input {
   -webkit-box-orient: vertical;
 }
 
-#mainContent {
-  min-height: 80vh;
+main {
+  min-height: min-content;
 
   &:focus {
     outline: #15803d solid 1px;

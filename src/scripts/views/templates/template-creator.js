@@ -137,11 +137,11 @@ const createSkeletonRestaurantsTemplate = (count) => {
     template += `
     <section class="card">
       <img src="/icons/placeholder.png" alt="skeleton restaurant" class="restaurant-image" />
-      <h4 class="card__title text-overflow">Restaurant Title</h4>
-      <p class="card__description text-overflow">Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.</p>
+      <h4 class="card__title text-overflow">Restaurant Name</h4>
+      <p class="card__description text-overflow">A good restaurant for your best experience. We always on the mood to serve you!</p>
       <section class="flex align-center">
-        <p class="flex"> <img src="./icons/rating-star.svg" width="20px" height="24px" alt="rating icon" loading="lazy" /> <span class="label">Rating</span></p>
-        <p class="flex px-1"><img src="./icons/map-pin.svg" width="16px" height="24px" alt="location icon" loading="lazy" /> <span class="label">Locations</span></p>
+        <p class="flex"> <img src="/icons/placeholder.png" width="20px" height="24px" alt="rating icon" /> <span class="label">4.5</span></p>
+        <p class="flex px-1"><img src="/icons/placeholder.png" width="16px" height="24px" alt="location icon" /> <span class="label">locations</span></p>
       </section>
     </section>
     `;
@@ -156,7 +156,7 @@ const createSkeletonFoodsTemplate = (count) => {
   for (let i = 0; i < count; i += 1) {
     template += `
     <section class="card">
-      <img src="/icons/placeholder.png" width="100%" height="192px" alt="skeleton food" class="food-image"/>
+      <img src="/icons/placeholder.png" alt="skeleton food" class="food-image"/>
       <h4 class="card__title text-overflow">Food Menu Title</h4>
     </section>
     `;
