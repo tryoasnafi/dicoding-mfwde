@@ -1,6 +1,11 @@
 import RestaurantResource from '../../data/restaurant-resource';
 import dataFood from '../../data/data-food.json';
-import { createFailedLoadTemplate, createLoaderTemplate } from '../templates/template-creator';
+import {
+  createFailedLoadTemplate,
+  createLoaderTemplate,
+  createSkeletonFoodsTemplate,
+  createSkeletonRestaurantsTemplate,
+} from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -13,10 +18,14 @@ const Home = {
       <section id="content" class="container px-1">
         <h3 tabindex="0">Explore Restaurant</h3>
         <hr />
-        <restaurant-list></restaurant-list>
+        <restaurant-list>
+          ${createSkeletonRestaurantsTemplate(20)}
+        </restaurant-list>
         <h3 tabindex="0">Recommended Food</h3>
         <hr />
-        <food-list></food-list>
+        <food-list>
+          ${createSkeletonFoodsTemplate(10)}
+        </food-list>
       </section>
     `;
   },
@@ -30,12 +39,14 @@ const Home = {
 
     try {
       const restaurants = await RestaurantResource.getRestaurantList();
+      restaurantsContainer.innerHTML = '';
       restaurantsContainer.restaurants = restaurants;
     } catch (error) {
       restaurantsContainer.innerHTML = createFailedLoadTemplate();
     }
 
     try {
+      foodListEl.innerHTML = '';
       foodListEl.foods = dataFood.results;
     } catch (error) {
       foodListEl.innerHTML = createFailedLoadTemplate();

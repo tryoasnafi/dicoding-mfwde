@@ -3,11 +3,11 @@ import API_ENDPOINT from '../../global/api-endpoint';
 const _createRestaurantIdentityTemplate = (restaurant) => `
   <section class="flex flex-wrap">
     <p class="flex mr-1">
-      <img class="restaurant__rating-icon" src="./icons/rating-star.svg" alt="rating icon" loading="lazy" />
+      <img class="restaurant__rating-icon" src="./icons/rating-star.svg" width="20px" height="24px" alt="rating icon" loading="lazy" />
       <span class="label">${(restaurant.rating).toFixed(1)}</span>
     </p>
     <p class="flex">
-      <img class="restaurant__map-icon" src="./icons/map-pin.svg" width="16px" alt="location icon" loading="lazy" /> 
+      <img class="restaurant__map-icon" src="./icons/map-pin.svg" width="16px" height="24px" alt="location icon" loading="lazy" /> 
       <span class="label">${restaurant.address}, ${restaurant.city}.</span>
     </p>
   </section>
@@ -82,7 +82,10 @@ const _createRestaurantFormReviewTemplate = (id) => `
 const createRestaurantDetailTemplate = (restaurant) => `
   <div class="restaurant__main-detail">
     <div class="restaurant-image">
-      <img class="restaurant__picture" src="${API_ENDPOINT.IMAGE_MEDIUM(restaurant.pictureId)}" alt="${restaurant.name}" loading="lazy" />
+      <picture>
+        <source media="(max-width: 480px)" srcset="${API_ENDPOINT.IMAGE_SMALL(restaurant.pictureId)}">
+        <img class="restaurant__picture lazyload" data-src="${API_ENDPOINT.IMAGE_MEDIUM(restaurant.pictureId)}" alt="${restaurant.name}"></img>
+      </picture>
     </div>
     <section class="restaurant__info" tabindex="0">  
       <h2 class="restaurant__name">${restaurant.name}</h2>
@@ -116,16 +119,51 @@ const createFailedAddReviewTemplate = (message) => `
 `;
 
 const createFavoriteButtonTemplate = () => `
-  <button aria-label="add to favorite restaurant" title="add to favorite restaurant" id="favoriteButton" class="favorite">
-     <img src="../icons/heart.svg">
+  <button aria-label="favorite this restaurant" title="add to favorite restaurant" id="favoriteButton" class="favorite">
+     <img src="./icons/heart.svg">
   </button>
 `;
 
 const createFavoritedButtonTemplate = () => `
   <button aria-label="unfavorite this restaurant" title="unfavorite this restaurant" id="favoriteButton" class="favorite">
-    <img src="../icons/heart-fill.svg">
+    <img src="./icons/heart-fill.svg">
   </button>
 `;
+
+const createSkeletonRestaurantsTemplate = (count) => {
+  let template = '';
+
+  for (let i = 0; i < count; i += 1) {
+    template += `
+    <section class="card">
+      <img src="/icons/placeholder.png" alt="skeleton restaurant" class="restaurant-image" />
+      <h4 class="card__title text-overflow">Restaurant Title</h4>
+      <p class="card__description text-overflow">Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.</p>
+      <section class="flex align-center">
+        <p class="flex"> <img src="./icons/rating-star.svg" width="20px" height="24px" alt="rating icon" loading="lazy" /> <span class="label">Rating</span></p>
+        <p class="flex px-1"><img src="./icons/map-pin.svg" width="16px" height="24px" alt="location icon" loading="lazy" /> <span class="label">Locations</span></p>
+      </section>
+    </section>
+    `;
+  }
+
+  return template;
+};
+
+const createSkeletonFoodsTemplate = (count) => {
+  let template = '';
+
+  for (let i = 0; i < count; i += 1) {
+    template += `
+    <section class="card">
+      <img src="/icons/placeholder.png" width="100%" height="192px" alt="skeleton food" class="food-image"/>
+      <h4 class="card__title text-overflow">Food Menu Title</h4>
+    </section>
+    `;
+  }
+
+  return template;
+};
 
 export {
   createRestaurantDetailTemplate,
@@ -135,4 +173,6 @@ export {
   createFailedAddReviewTemplate,
   createFavoriteButtonTemplate,
   createFavoritedButtonTemplate,
+  createSkeletonRestaurantsTemplate,
+  createSkeletonFoodsTemplate,
 };

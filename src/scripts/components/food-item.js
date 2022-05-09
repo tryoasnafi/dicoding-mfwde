@@ -12,7 +12,7 @@ class FoodItem extends HTMLElement {
     this.innerHTML = `
       <a href="#">
         <section>
-          <img src="${this._food.image}" alt="${this._food.title}" class="food-image" loading="lazy" />
+          <img data-src="${this._food.image}" src="/icons/placeholder.png" alt="${this._food.title}" class="food-image lazyload"/>
           <h4 class="card__title text-overflow">${this._food.title}</h4>
         </section>
       </a>
