@@ -27,7 +27,7 @@ Before(({ I }) => {
   I.amOnPage('/#/favorite');
 });
 
-Scenario('showing empty favorited movies', ({ I }) => {
+Scenario('showing empty favorited restaurants', ({ I }) => {
   I.see('You have no favorite restaurant yet', '.favorite__heading');
 });
 
